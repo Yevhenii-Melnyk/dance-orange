@@ -1,0 +1,1010 @@
+/* Fonts */
+@font-face {
+  font-family: "Oswald";
+  src: url("../fonts/Oswald-Bold.woff2") format("woff2"),
+    url("../fonts/Oswald-Bold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("../fonts/Oswald-DemiBold.woff2") format("woff2"),
+    url("../fonts/Oswald-DemiBold.woff") format("woff");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("../fonts/Oswald-Regular.woff2") format("woff2"),
+    url("../fonts/Oswald-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Regular.woff2") format("woff2"),
+    url("../fonts/Montserrat-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito-Regular.woff2") format("woff2"),
+    url("../fonts/Nunito-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+/*Global*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --colorPrimary: #e8631c;
+  --colorSecondary: #303030;
+}
+
+body {
+  font-family: arial, "san-serif";
+  line-height: 1.3;
+  background: var(--colorPrimary);
+  color: #fff;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 0 55px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  display: block;
+  width: 322px;
+  height: 65px;
+  border-radius: 4px;
+  background-color: var(--colorSecondary);
+  color: #fff;
+  font-size: 25px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/*Header*/
+.header {
+  background-color: var(--colorSecondary);
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.header__group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  padding-top: 20px;
+  padding-bottom: 22px;
+}
+
+.header__nav {
+  display: flex;
+}
+
+.header__link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+}
+
+.header__link:hover {
+  color: var(--colorPrimary);
+  transition: 0.5s;
+}
+
+.header__link:not(:last-child) {
+  margin-right: 40px;
+}
+
+.header__search {
+  cursor: pointer;
+}
+
+/*Menu for header*/
+.menu {
+  position: absolute;
+  top: 50%;
+  left: 93%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.menu__btn {
+  position: relative;
+  display: block;
+  height: 40px;
+  width: 40px;
+  border: 3px solid white;
+  border-radius: 0;
+  -webkit-transition: border-radius 300ms ease;
+  transition: border-radius 300ms ease;
+}
+.menu__btn:hover {
+  border-radius: 50%;
+}
+.menu__btn.is-open .menu__burger {
+  opacity: 0;
+  -webkit-transform: translateX(45px);
+  transform: translateX(45px);
+}
+.menu__btn.is-open .menu__exit {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.menu__burger,
+.menu__burger:before,
+.menu__burger:after {
+  display: block;
+  content: "";
+  width: 18px;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+}
+
+.menu__burger {
+  left: 8px;
+  top: 16px;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+  -webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+  transition: opacity 300ms ease, -webkit-transform 300ms ease;
+  transition: opacity 300ms ease, transform 300ms ease;
+  transition: opacity 300ms ease, transform 300ms ease,
+    -webkit-transform 300ms ease;
+}
+.menu__burger:before {
+  top: -8px;
+}
+.menu__burger:after {
+  top: 8px;
+}
+
+.menu__exit:before,
+.menu__exit:after {
+  display: block;
+  content: "";
+  width: 22px;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+}
+
+.menu__exit {
+  position: absolute;
+  top: 16px;
+  left: 6px;
+  -webkit-transform: translateX(-45px);
+  transform: translateX(-45px);
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+  transition: opacity 300ms ease, -webkit-transform 300ms ease;
+  transition: opacity 300ms ease, transform 300ms ease;
+  transition: opacity 300ms ease, transform 300ms ease,
+    -webkit-transform 300ms ease;
+}
+.menu__exit:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.menu__exit:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+/*Main screen*/
+.main-screen {
+  background: url(../img/background_img.jpeg) no-repeat center/cover;
+  padding-top: 370px;
+  padding-bottom: 83px;
+  position: relative;
+  z-index: 10;
+}
+
+.main-screen__title {
+  font-size: 125px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  padding-bottom: 44px;
+}
+
+.main-screen__text {
+  font-size: 30px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  padding-bottom: 47px;
+}
+
+.main-screen__btn {
+  width: 322px;
+  height: 65px;
+  border-radius: 4px;
+  background-color: var(--colorPrimary);
+  font-size: 29px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Dance tour */
+.dance-tour {
+  padding-bottom: 100px;
+}
+
+.dance-tour__box-content {
+  padding-top: 106px;
+  position: relative;
+}
+
+.dance-tour__box-content::after {
+  content: url(../img/dots-1.png);
+  bottom: 171px;
+  right: 421px;
+  position: absolute;
+  z-index: -1;
+}
+
+.dance-tour__title {
+  font-size: 75px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+.dance-tour__text {
+  padding-top: 66px;
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+.dance-tour__cards {
+  padding-top: 84px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 370px);
+  gap: 63px;
+  justify-content: center;
+}
+
+.dance-tour__card {
+  background-color: var(--colorSecondary);
+  position: relative;
+  z-index: 2;
+}
+
+.dance-tour__img-card {
+  height: 327px;
+}
+
+.dance-tour__title-card {
+  padding-top: 38px;
+  font-size: 37px;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+.dance-tour__text-card {
+  padding-top: 25px;
+  padding-bottom: 37px;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Pricing */
+.pricing {
+  background-color: var(--colorSecondary);
+}
+
+.pricing__box {
+  position: relative;
+  z-index: 1;
+}
+
+.pricing__box::before {
+  content: url(../img/dots-2.png);
+  position: absolute;
+  right: 700px;
+  top: -400px;
+}
+
+.pricing__title {
+  padding-top: 109px;
+  font-size: 75px;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pricing__text {
+  padding-top: 66px;
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+.pricing__cards {
+  padding-top: 86px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 372px);
+  gap: 60px;
+  justify-content: center;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.pricing__card {
+  padding-top: 63px;
+  padding-bottom: 30px;
+  border-radius: 8px;
+  background-color: var(--colorPrimary);
+  position: relative;
+}
+
+.pricing__card-img {
+  display: block;
+  margin: 0 auto;
+}
+
+.pricing__card-title {
+  padding-top: 60px;
+  font-size: 37px;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pricing__card-text {
+  padding-top: 41px;
+  padding-bottom: 34px;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+.pricing__btn {
+  margin: 0 auto;
+}
+
+/* AB-Dance */
+.ab-dance .container {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  justify-content: center;
+  align-items: center;
+}
+
+.ab-dance__box-pic,
+.ab-dance__box-img {
+  position: relative;
+}
+
+.ab-dance__box-pic::before {
+  content: url(../img/dots-3.png);
+  position: absolute;
+  z-index: 1;
+  left: 722px;
+  bottom: 400px;
+}
+
+.ab-dance__pic {
+  display: block;
+}
+
+.ab-dance__content,
+.ab-dance__filling {
+  margin: 0 auto;
+  position: relative;
+}
+
+.ab-dance__content::after {
+  content: url(../img/dots-4.png);
+  position: absolute;
+  left: 44px;
+  top: 155px;
+}
+
+.ab-dance__filling::after {
+  content: url(../img/dots-5.png);
+  position: absolute;
+  right: 44px;
+  top: 230px;
+}
+
+.ab-dance__title {
+  font-size: 75px;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+}
+
+.ab-dance__text {
+  font-size: 30px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  padding-top: 66px;
+  padding-bottom: 70px;
+}
+
+.ab-dance__btn {
+  font-size: 29px;
+  position: relative;
+  z-index: 2;
+}
+
+/*Our statics*/
+.our-statics {
+  background-color: var(--colorSecondary);
+  padding-top: 208px;
+  padding-bottom: 268px;
+}
+
+.our-statics__title {
+  font-size: 75px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+}
+
+.our-statics__subtitle {
+  font-size: 30px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  padding-top: 65px;
+}
+
+.our-statics__content {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 200px;
+}
+
+.our-statics__amount {
+  font-size: 67px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+.our-statics__designation {
+  font-size: 42px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+/*Herbert Simon*/
+.herbert-simon {
+  background: url(../img/background-dance-img.jpg) no-repeat center/cover;
+  padding: 345px 0;
+}
+
+.herbert-simon__text {
+  font-size: 50px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+.herbert-simon__brand-name {
+  padding-top: 80px;
+  font-size: 58px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/*Subscribe*/
+.subscribe__img-box {
+  padding-top: 135px;
+  padding-bottom: 160px;
+  position: relative;
+}
+
+.subscribe__img-box::before {
+  content: url(../img/dots-6.png);
+  top: -345px;
+  right: 510px;
+  position: absolute;
+  z-index: -1;
+}
+
+.subscribe__img-box::after {
+  content: url(../img/dots-7.png);
+  top: -221px;
+  left: 533px;
+  position: absolute;
+  z-index: -1;
+}
+
+.subscribe__title {
+  font-size: 75px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.subscribe__text {
+  padding-top: 65px;
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+.subscribe__form {
+  padding-top: 55px;
+  display: flex;
+  justify-content: center;
+}
+
+.subscribe__inp-mail {
+  min-height: 65px;
+  width: 550px;
+  outline: none;
+  padding-left: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.subscribe__inp-btn {
+  width: 222px;
+  border-radius: 4px;
+  background-color: var(--colorSecondary);
+  font-size: 25px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+
+/*Footer*/
+.footer {
+  background-color: var(--colorSecondary);
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+
+.footer__box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__title {
+  font-size: 33px;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+}
+
+.footer__text {
+  font-size: 20px;
+  padding-top: 45px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+.footer__social-networks {
+  display: flex;
+  padding-top: 35px;
+}
+
+.footer__social-contact {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: end;
+}
+
+.footer__link:hover {
+  color: var(--colorPrimary);
+  transition: 0.5s;
+}
+
+.footer__group {
+  margin-right: 40px;
+}
+
+.footer__link {
+  display: block;
+  font-size: 20px;
+  line-height: 44px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  color: #fff;
+}
+
+/*@media*/
+@media screen and (max-width: 1363px) {
+  /*Dance tour*/
+  .dance-tour__cards {
+    display: flex;
+  }
+
+  .dance-tour__card {
+    margin: 63px auto 0 auto;
+  }
+
+  /*Pricing*/
+  .pricing__cards {
+    display: block;
+  }
+
+  .pricing__card {
+    max-width: 570px;
+    margin: 63px auto 0 auto;
+  }
+}
+
+@media screen and (max-width: 1263px) {
+  /*Dance tour*/
+  .dance-tour__cards {
+    padding-top: 44px;
+  }
+
+  .dance-tour__img-card {
+    height: 300px;
+  }
+
+  .dance-tour__title-card {
+    padding-top: 5px;
+    font-size: 25px;
+  }
+
+  .dance-tour__text-card {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 15px;
+  }
+
+  /*AB-dance*/
+  .ab-dance__text {
+    font-size: 20px;
+    padding-top: 46px;
+    padding-bottom: 50px;
+  }
+
+  .ab-dance__title {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  /*Header*/
+  .header__nav {
+    display: none;
+    position: fixed;
+    background: var(--colorSecondary);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .header__link {
+    margin-right: 40px;
+  }
+
+  .header__search {
+    display: none;
+  }
+
+  /*Menu for header*/
+  .menu {
+    display: block;
+  }
+
+  /*Dance Tour*/
+  .dance-tour__img-card {
+    height: 250px;
+  }
+
+  /*Footer*/
+  .footer__box {
+    display: grid;
+    justify-content: center;
+    gap: 100px;
+  }
+
+  .footer__text {
+    padding-top: 15px;
+  }
+}
+
+@media screen and (max-width: 929px) {
+  /*Dance tour*/
+  .dance-tour__box-content {
+    padding-top: 78px;
+  }
+
+  .dance-tour__title {
+    font-size: 55px;
+  }
+
+  .dance-tour__text {
+    font-size: 20px;
+    padding-top: 35px;
+  }
+
+  .dance-tour__cards {
+    padding-top: 84px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 370px);
+    gap: 63px;
+    justify-content: center;
+    padding-top: 0;
+  }
+
+  .dance-tour__card {
+    position: relative;
+    z-index: 2;
+  }
+
+  .dance-tour__img-card {
+    height: 327px;
+  }
+
+  .dance-tour__title-card {
+    padding-top: 38px;
+    font-size: 37px;
+  }
+
+  .dance-tour__text-card {
+    padding-top: 25px;
+    padding-bottom: 37px;
+    font-size: 22px;
+  }
+
+  /*AB-dance*/
+  .ab-dance__text {
+    font-size: 15px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  .ab-dance__title {
+    font-size: 35px;
+  }
+
+  /*Pricing*/
+  .pricing__title {
+    padding-top: 78px;
+    font-size: 55px;
+  }
+  .pricing__text {
+    padding-top: 35px;
+    font-size: 20px;
+  }
+
+  .pricing__cards {
+    padding-top: 40px;
+  }
+
+  /*Our statics*/
+  .our-statics {
+    padding-top: 78px;
+    padding-bottom: 108px;
+  }
+
+  .our-statics__title {
+    font-size: 55px;
+  }
+
+  .our-statics__subtitle {
+    padding-top: 35px;
+    font-size: 20px;
+  }
+
+  .our-statics__content {
+    padding-top: 70px;
+  }
+
+  .our-statics__amount {
+    font-size: 30px;
+  }
+
+  .our-statics__designation {
+    font-size: 25px;
+  }
+
+  /*Herbert Simon*/
+  .herbert-simon {
+    padding: 110px 0;
+  }
+
+  .herbert-simon__text {
+    font-size: 30px;
+  }
+
+  .herbert-simon__brand-name {
+    padding-top: 50px;
+    font-size: 55px;
+  }
+
+  /*Sibscribe*/
+  .subscribe__img-box {
+    padding: 80px 0;
+  }
+
+  .subscribe__title {
+    font-size: 55px;
+  }
+
+  .subscribe__text {
+    padding-top: 35px;
+    font-size: 20px;
+  }
+
+  /*Footer*/
+  .footer {
+    padding: 50px 0;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  /*Main screen*/
+  .main-screen {
+    padding-top: 150px;
+  }
+
+  .main-screen__title {
+    font-size: 75px;
+  }
+
+  .main-screen__text {
+    font-size: 25px;
+  }
+
+  /*AB-Dance*/
+  .ab-dance .container {
+    display: block;
+  }
+
+  .ab-dance__content,
+  .ab-dance__filling {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ab-dance__content {
+    padding-bottom: 200px;
+  }
+
+  .ab-dance__filling {
+    padding-bottom: 15px;
+  }
+
+  .ab-dance__text {
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+  }
+
+  .ab-dance__title {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  /*Main screen*/
+  .main-screen__title {
+    font-size: 45px;
+  }
+
+  .main-screen__text {
+    font-size: 15px;
+  }
+
+  .main-screen__btn {
+    width: 250px;
+  }
+
+  /*Pricing*/
+  .pricing__cards {
+    padding: 20px 0;
+  }
+  .pricing__card {
+    padding: 5px 0;
+    margin: 30px 0 auto 0;
+  }
+
+  .pricing__card-title {
+    padding-top: 10px;
+    font-size: 30px;
+  }
+
+  .pricing__card-text {
+    padding: 10px 0;
+    font-size: 15px;
+  }
+
+  .pricing__btn {
+    width: 200px;
+  }
+
+  /*Subescribe*/
+  .subscribe__inp-mail {
+    min-height: 45px;
+    width: 350px;
+    padding-left: 10px;
+    font-size: 15px;
+  }
+
+  .subscribe__inp-btn {
+    width: 222px;
+    font-size: 15px;
+  }
+
+  /*Footer*/
+  .footer__title {
+    font-size: 25px;
+  }
+
+  .footer__text,
+  .footer__link {
+    font-size: 15px;
+  }
+}
